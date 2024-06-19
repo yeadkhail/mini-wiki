@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create new page
+{% endblock %}
+
+
+{% block body %}
+    {% if not valid %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            Sorry, There is a already a content with that title.
+        </div>
+    {% endif %}
+    <h1> Create New Page:</h1>
+    <form action="{% url 'new' %}" method="post">
+        {% csrf_token %}
+        {{form2}}
+        <input class="submit" type="submit">
+    </form>
+
+{% endblock %}
